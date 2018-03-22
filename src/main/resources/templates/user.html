@@ -40,7 +40,12 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="panel panel-default">
                             <div class="panel-heading text-center">TA的收藏夹</div>
-                            <div class="list-group" id="userFavorites"> <a id="userAll" href="javascript:void(0);" class="media p mt0 list-group-item active" th:onclick="'userLocationUrl(\'/usercontent/'+${user.id}+'/0\',\'userAll\');'"> <span class="media-body"> <span class="media-heading" id="allFavorites"> </span> </span> </a> </div>
+                            <div class="list-group" id="userFavorites">
+                                <a id="userAll" href="javascript:void(0);" class="media p mt0 list-group-item active" th:onclick="'userLocationUrl(\'/usercontent/'+${user.id}+'/0\',\'userAll\');'">
+                                    <span class="media-body"> <span class="media-heading" id="allFavorites">
+                                    </span> </span>
+                                </a>
+                            </div>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading text-center">关注</div>

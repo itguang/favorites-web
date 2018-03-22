@@ -13,6 +13,10 @@ import javax.persistence.Transient;
 import com.favorites.domain.enums.CollectType;
 import com.favorites.domain.enums.IsDelete;
 
+
+/**
+ * 收藏夹实体类
+ */
 @Entity
 public class Collect  implements Serializable {
 

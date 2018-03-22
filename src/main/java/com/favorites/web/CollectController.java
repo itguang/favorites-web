@@ -39,6 +39,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+
+/**
+ * 点击云收藏按钮后提交网址到此controller
+ */
 @RestController
 @RequestMapping("/collect")
 public class CollectController extends BaseController{

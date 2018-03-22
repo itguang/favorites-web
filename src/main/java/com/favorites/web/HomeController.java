@@ -224,7 +224,7 @@ public class HomeController extends BaseController{
 	
 	/**
 	 * 搜索
-	 * @author neo
+	 * @author
 	 * @date 2016年8月25日
 	 * @param model
 	 * @param page
@@ -310,7 +310,7 @@ public class HomeController extends BaseController{
 	}
 
 	/**
-	 * 浏览记录 标准显示 added by chenzhimin
+	 * 浏览记录 标准显示 added by
 	 * @param model
 	 * @param page
 	 * @param size
@@ -341,7 +341,7 @@ public class HomeController extends BaseController{
 	}
 
 	/**
-	 * 浏览记录 简单显示 added by chenzhimin
+	 * 浏览记录 简单显示 added by
 	 * @param model
 	 * @param page
 	 * @param size

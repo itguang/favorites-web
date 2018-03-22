@@ -20,6 +20,11 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+ /**
+ * 服务端解析网页工具获取收藏所需字段的工具类(最好放到客户端)
+ */
+
 public class HtmlUtil {
 	
     private static Logger logger = Logger.getLogger(HtmlUtil.class);
@@ -37,6 +42,8 @@ public class HtmlUtil {
 	}
 	
 	/**
+	 *
+	 * 解析url获取图片
 	 * @param url
 	 * @return
 	 */
@@ -83,7 +90,12 @@ public class HtmlUtil {
 		}
 		return imgUrl;
 	}
-	
+
+	/**
+	 * 解析url获取收藏所需字段 title , url, charset ,description
+	 * @param url
+	 * @return
+	 */
 	public static Map<String, String> getCollectFromUrl(String url){
 		Map<String, String> result = new HashMap<String, String>();
 		try {

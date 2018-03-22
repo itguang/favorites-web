@@ -28,6 +28,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+/**
+ * 个人首页Controller(左侧列表的所有点击事件在此分发)
+ */
 @Controller
 @RequestMapping("/")
 public class IndexController extends BaseController{
@@ -62,6 +65,7 @@ public class IndexController extends BaseController{
 	public String index(Model model){
 		IndexCollectorView indexCollectorView = (IndexCollectorView) redisService.getObject("collector");
 		if(indexCollectorView==null){
+			//获取云收藏的收藏家们
 			indexCollectorView = collectorService.getCollectors();
 			redisService.setObject("collector", indexCollectorView);
 		}
@@ -170,7 +174,8 @@ public class IndexController extends BaseController{
 	public String regist() {
 		return "register";
 	}
-	
+
+
 	@RequestMapping(value="/tool")
 	@LoggerManage(description="工具页面")
 	public String tool(Model model) {
@@ -283,10 +288,15 @@ public class IndexController extends BaseController{
     public String collectorPageShow(Model model, @PathVariable("userId") Long userId, @PathVariable("favoritesId") Long favoritesId, @RequestParam(value = "page", defaultValue = "0") Integer page,
                                  @RequestParam(value = "size", defaultValue = "15") Integer size){
         User user = userRepository.findOne(userId);
+
+        //收藏总数
         Long collectCount = 0l;
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = new PageRequest(page, size, sort);
+
+
         List<CollectSummary> collects = null;
+
         Integer isFollow = 0;
         if(getUserId().longValue() == userId.longValue()){
             model.addAttribute("myself",IsDelete.YES.toString());
@@ -308,6 +318,8 @@ public class IndexController extends BaseController{
         }
         Integer follow = followRepository.countByUserIdAndStatus(userId, FollowStatus.FOLLOW);
         Integer followed = followRepository.countByFollowIdAndStatus(userId, FollowStatus.FOLLOW);
+
+
         List<Favorites> favoritesList = favoritesRepository.findByUserId(userId);
         List<String> followUser = followRepository.findFollowUserByUserId(userId);
         List<String> followedUser = followRepository.findFollowedUserByFollowId(userId);

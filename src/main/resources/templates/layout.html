@@ -19,15 +19,24 @@
     <link rel="stylesheet" th:href="@{/media/css/theme-i.css}" />
   </head>
 
+  <!--后台页面布局模板-->
+
   <body class="layout-fixed">
     <div th:fragment="navbar"  class="wrapper"  role="navigation">
-		<div th:replace="fragments/header :: header">Header</div>
-		<div th:replace="fragments/left :: left">left</div>
-		<div th:replace="fragments/sidebar :: sidebar">sidebar</div>
+		<div th:replace="fragments/header :: header">头部</div>
+		<div th:replace="fragments/left :: left">左侧菜单</div>
+		<div th:replace="fragments/sidebar :: sidebar">顶部</div>
+        <!--任何页面想使用这样的布局值只需要替换中间的 content模块即可-->
 		<div layout:fragment="content" id="content" ></div>
-		<div th:replace="fragments/footer :: footer">footer</div>
+		<div th:replace="fragments/footer :: footer">底部</div>
     </div>
+
+
 	<div th:replace="fragments/alert :: alert">alert</div>
+
+
+
+
     <script type="text/javascript" src="/webjarslocator/jquery/jquery.min.js"></script>
     <script th:src="@{/vendor/jquery.form/jquery.form.min.js}"></script>
 	<script th:src="@{/webjars/bootstrap/3.3.6/dist/js/bootstrap.min.js}"></script>

@@ -3,10 +3,8 @@ package com.favorites.domain.view;
 import com.favorites.domain.User;
 
 /**
- * @Description:
- * @Auth: yuyang
- * @Date: 2017/1/19 14:18
- * @Version: 1.0
+ * @Description: 首页收藏家展示的实体类
+ *
  **/
 public class IndexCollectorView {
     //收藏文章最多的用户
